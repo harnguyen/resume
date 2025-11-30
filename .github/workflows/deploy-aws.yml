@@ -1,11 +1,7 @@
 name: Deploy to AWS S3
 
 on:
-  push:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
+  workflow_dispatch:  # Only run manually, not on every push
 
 env:
   AWS_REGION: us-east-1
