@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 // For root domain or custom domain, use '/'
 const base = process.env.GITHUB_REPOSITORY 
   ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/` 
-  : '/'
+  : '/resume/'
 
 export default defineConfig({
   plugins: [react()],
