@@ -1,154 +1,62 @@
 # Deployment Guide
 
-This guide covers deploying your resume app to GitHub Pages and AWS S3.
+This resume website is a static GitHub Pages site. It deploys the repository root directly, so there is no build command required.
 
 ## GitHub Pages Deployment
 
-### Option 1: Automatic Deployment (Recommended)
+1. Create a GitHub repository, for example `resume`.
+2. Push this folder to GitHub:
 
-1. **Push your code to GitHub:**
    ```bash
    git init
    git add .
-   git commit -m "Initial commit"
+   git commit -m "Create resume website"
    git branch -M main
-   git remote add origin https://github.com/yourusername/your-repo-name.git
+   git remote add origin https://github.com/yourusername/resume.git
    git push -u origin main
    ```
 
-2. **Enable GitHub Pages:**
-   - Go to your repository on GitHub
-   - Click **Settings** → **Pages**
-   - Under **Source**, select **GitHub Actions**
-   - The workflow will automatically deploy on every push to main/master
+3. In GitHub, open the repository settings.
+4. Go to **Pages**.
+5. Under **Build and deployment**, choose **GitHub Actions**.
+6. Pushes to `main` or `master` will run `.github/workflows/deploy.yml`.
 
-3. **Access your site:**
-   - If repo name is `resume`: `https://yourusername.github.io/resume/`
-   - For custom domain: Configure in Pages settings
+The website will be available at:
 
-### Option 2: Manual Deployment
-
-```bash
-npm install -g gh-pages
-npm run deploy:gh
+```text
+https://yourusername.github.io/resume/
 ```
 
-## AWS S3 Deployment
+## Manual Branch Deployment Alternative
 
-### Prerequisites
+If you do not want GitHub Actions:
 
-1. **Install AWS CLI:**
-   ```bash
-   # Windows (PowerShell)
-   winget install Amazon.AWSCLI
-   
-   # Or download from: https://aws.amazon.com/cli/
+1. Open repository **Settings** -> **Pages**.
+2. Choose **Deploy from a branch**.
+3. Select branch `main`.
+4. Select folder `/root`.
+5. Save.
+
+## Custom Domain
+
+1. Add a file named `CNAME` at the repository root.
+2. Put only your domain inside it, for example:
+
+   ```text
+   yourdomain.com
    ```
 
-2. **Configure AWS credentials:**
-   ```bash
-   aws configure
-   # Enter your Access Key ID, Secret Access Key, and region
-   ```
+3. In your DNS provider, point the domain to GitHub Pages.
+4. Enable **Enforce HTTPS** in GitHub Pages settings after DNS is ready.
 
-### Setup S3 Bucket
+## Resume PDF
 
-1. **Create S3 bucket:**
-   ```bash
-   aws s3 mb s3://your-resume-bucket-name --region us-east-1
-   ```
+The website currently lets visitors save the page as a PDF through the browser print dialog.
 
-2. **Enable static website hosting:**
-   ```bash
-   aws s3 website s3://your-resume-bucket-name \
-     --index-document index.html \
-     --error-document index.html
-   ```
+To provide a separate downloadable resume file, add it here:
 
-3. **Set bucket policy for public read:**
-   Create `bucket-policy.json`:
-   ```json
-   {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Sid": "PublicReadGetObject",
-         "Effect": "Allow",
-         "Principal": "*",
-         "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::your-resume-bucket-name/*"
-       }
-     ]
-   }
-   ```
-   
-   Apply policy:
-   ```bash
-   aws s3api put-bucket-policy --bucket your-resume-bucket-name --policy file://bucket-policy.json
-   ```
-
-### Deploy to S3
-
-**Using PowerShell script:**
-```powershell
-.\deploy-aws.ps1 -BucketName "your-resume-bucket-name"
+```text
+assets/resume.pdf
 ```
 
-**Using bash script (Git Bash/WSL):**
-```bash
-chmod +x deploy-aws.sh
-./deploy-aws.sh your-resume-bucket-name
-```
-
-**Manual deployment:**
-```bash
-npm run build
-aws s3 sync dist/ s3://your-resume-bucket-name --delete
-```
-
-### Optional: CloudFront CDN
-
-1. **Create CloudFront distribution:**
-   - Origin: Your S3 bucket
-   - Default root object: `index.html`
-   - Enable HTTPS
-
-2. **Deploy with CloudFront invalidation:**
-   ```powershell
-   .\deploy-aws.ps1 -BucketName "your-bucket" -CloudFrontId "E1234567890ABC"
-   ```
-
-### GitHub Actions for AWS
-
-1. **Add secrets to GitHub:**
-   - Go to repository → **Settings** → **Secrets and variables** → **Actions**
-   - Add: `AWS_ACCESS_KEY_ID`
-   - Add: `AWS_SECRET_ACCESS_KEY`
-   - Add: `CLOUDFRONT_DISTRIBUTION_ID` (optional)
-
-2. **Update workflow:**
-   - Edit `.github/workflows/deploy-aws.yml`
-   - Set `S3_BUCKET` environment variable
-
-3. **Push to trigger deployment:**
-   ```bash
-   git push origin main
-   ```
-
-## Custom Domain Setup
-
-### GitHub Pages
-1. Add `CNAME` file in `public/` folder with your domain
-2. Configure DNS: Add CNAME record pointing to `yourusername.github.io`
-
-### AWS S3 + CloudFront
-1. Request SSL certificate in AWS Certificate Manager
-2. Add domain to CloudFront distribution
-3. Configure DNS: Add CNAME/Alias pointing to CloudFront distribution
-
-## Troubleshooting
-
-- **404 errors on refresh:** Ensure S3/CloudFront serves `index.html` for all routes
-- **Assets not loading:** Check `base` path in `vite.config.js` matches your deployment path
-- **CORS issues:** Configure CORS on S3 bucket if needed
-
+Then update the button in `index.html` to point to that file.

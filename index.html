@@ -2,13 +2,228 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume</title>
+    <meta
+      name="description"
+      content="Resume website for Hung Nguyen Thanh, Senior Software Engineer specializing in backend systems, microservices, and cloud-native platforms."
+    />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Hung Nguyen Thanh | Senior Software Engineer</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <nav class="nav">
+        <a class="brand" href="#top">Hung Nguyen Thanh</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Toggle navigation</span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a class="nav-cta" href="mailto:hungnt0597@gmail.com">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section" id="top">
+        <div class="hero-content">
+          <p class="eyebrow">Vietnam based senior backend engineer</p>
+          <h1>Hung Nguyen Thanh</h1>
+          <p class="headline">
+            Senior Software Engineer building resilient Java, microservice, and cloud-native systems for high-traffic products.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="mailto:hungnt0597@gmail.com">Email me</a>
+            <button class="button button-secondary" type="button" data-print-resume>Save as PDF</button>
+          </div>
+        </div>
+
+        <aside class="contact-panel" aria-label="Contact details">
+          <div>
+            <span class="meta-label">Email</span>
+            <a href="mailto:hungnt0597@gmail.com">hungnt0597@gmail.com</a>
+          </div>
+          <div>
+            <span class="meta-label">Phone</span>
+            <a href="tel:+84346262506">+84 346 262 506</a>
+          </div>
+          <div>
+            <span class="meta-label">Location</span>
+            <span>Vietnam</span>
+          </div>
+          <div>
+            <span class="meta-label">Focus</span>
+            <span>Java, Spring Boot, Vert.x, distributed systems</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section summary-section" aria-labelledby="summary-title">
+        <div class="section-heading">
+          <p class="eyebrow">Profile</p>
+          <h2 id="summary-title">Professional Summary</h2>
+        </div>
+        <p class="summary">
+          Senior Software Engineer with 5+ years of experience specializing in backend development and microservices architecture.
+          Proven track record of designing scalable, high-availability systems serving millions of users. Strong expertise in the
+          Java ecosystem, distributed systems, and cloud-native technologies, with a practical focus on clean architecture,
+          reliable delivery, and production stability.
+        </p>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="eyebrow">Career</p>
+          <h2 id="experience-title">Work Experience</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span>2022/07 - Present</span>
+              <span>Vietnam</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Senior Software Engineer</h3>
+              <p class="company">NOVAID</p>
+              <ul>
+                <li>Architected scalable backend APIs for Aquacity Smart City using Spring Boot, Spring Security, Spring Data JPA, and PostgreSQL.</li>
+                <li>Applied hexagonal architecture and domain-driven design to improve maintainability, testability, and system boundaries.</li>
+                <li>Led API integration across one frontend team and five mobile teams, improving cross-functional delivery and interoperability.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span>2021/09 - 2022/06</span>
+              <span>Vietnam</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Java Developer</h3>
+              <p class="company">MOMO</p>
+              <ul>
+                <li>Designed reactive microservices with Vert.x, Kafka, and RabbitMQ for high-throughput transaction processing.</li>
+                <li>Built authentication rate limiting to reduce spam login attempts and improve platform security.</li>
+                <li>Diagnosed production memory leaks using heap dump analysis and Memory Analyzer, improving application stability.</li>
+                <li>Optimized fraud detection workflows through KYC and AI integrations, reducing customer support workload by 15%.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span>2019/03 - 2021/08</span>
+              <span>Vietnam</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Software Engineer</h3>
+              <p class="company">VNG Corporation</p>
+              <ul>
+                <li>Redesigned billing service architecture to resolve critical production issues and improve reliability.</li>
+                <li>Split a monolithic billing system into services with zero-downtime deployment and 50% lower API latency.</li>
+                <li>Implemented monitoring and alerting with Prometheus and Grafana, reducing mean time to detection by 40%.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section grid-section" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="eyebrow">Toolkit</p>
+          <h2 id="skills-title">Skills</h2>
+        </div>
+
+        <div class="skill-grid">
+          <article class="skill-card">
+            <h3>Core</h3>
+            <p>Data structures, algorithms, problem solving, clean code, clean architecture, system design</p>
+          </article>
+          <article class="skill-card">
+            <h3>Backend</h3>
+            <p>Java Core, Spring Boot, Spring Security, Spring Data JPA, Vert.x, Apache Thrift</p>
+          </article>
+          <article class="skill-card">
+            <h3>Data & Messaging</h3>
+            <p>PostgreSQL, MySQL, Redis, Kafka, RabbitMQ, Hibernate</p>
+          </article>
+          <article class="skill-card">
+            <h3>Cloud & DevOps</h3>
+            <p>Docker, Kubernetes, CI/CD, Prometheus, Grafana, Git</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2 id="projects-title">Projects</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <span class="project-tag">Smart City Platform</span>
+            <h3>Aquacity Backend APIs</h3>
+            <p>
+              Scalable backend services for a smart city platform, built with Spring Boot, PostgreSQL, domain-driven design,
+              and integrations for web and mobile clients.
+            </p>
+          </article>
+          <article class="project-card">
+            <span class="project-tag">Payments</span>
+            <h3>Risk & Fraud Services</h3>
+            <p>
+              Reactive Java services for transaction risk workflows, KYC integrations, rate limiting, and production stability
+              improvements in a high-volume fintech environment.
+            </p>
+          </article>
+          <article class="project-card">
+            <span class="project-tag">Billing</span>
+            <h3>Billing Service Migration</h3>
+            <p>
+              Migration from monolithic billing into independent services with zero-downtime rollout, monitoring, and latency
+              improvements for real-time balance operations.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section education-section" id="education" aria-labelledby="education-title">
+        <div class="section-heading">
+          <p class="eyebrow">Credentials</p>
+          <h2 id="education-title">Education & Certifications</h2>
+        </div>
+
+        <div class="credential-list">
+          <article>
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p>Bach Khoa University, Ho Chi Minh City University of Technology</p>
+            <span>10/2015 - 11/2019 · GPA 7.6/10.0</span>
+          </article>
+          <article>
+            <h3>TOEIC</h3>
+            <p>English certification score: 700</p>
+            <span>04/2019</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Built for GitHub Pages. Update content directly in <code>index.html</code>.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
-
