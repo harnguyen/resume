@@ -69,10 +69,10 @@
           <h2 id="summary-title">Professional Summary</h2>
         </div>
         <p class="summary">
-          Senior Software Engineer with 5+ years of experience designing backend platforms, microservices, and high-availability
-          systems. Strong Java, Spring Boot, Vert.x, Kafka, PostgreSQL, and Kubernetes background, with hands-on ownership across
-          architecture, API delivery, production reliability, and developer mentoring. Known for building maintainable systems
-          with clean boundaries, practical security awareness, and stable delivery in cross-functional teams.
+          Senior Software Engineer with 7+ years of experience designing backend platforms, microservices, and high-availability
+          systems. Strong Java, Spring Boot, Vert.x, Kafka, PostgreSQL, Azure SQL, and Kubernetes background, with hands-on ownership
+          across architecture, API delivery, production reliability, and developer mentoring. Known for leading complex migrations,
+          building maintainable systems, and driving stable delivery across cross-functional teams.
         </p>
       </section>
 
@@ -85,7 +85,27 @@
         <div class="timeline">
           <article class="timeline-item">
             <div class="timeline-meta">
-              <span>2022/07 - Present</span>
+              <span>2023/07 - Present</span>
+              <span>Vietnam</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Senior Software Engineer</h3>
+              <p class="company">Axon</p>
+              <ul>
+                <li>Led a multi-year identity and access management database migration initiative across 12 regions, multiple product pillars, 100+ tables, and approximately 30 services, completing production switchover with zero incidents.</li>
+                <li>Led the migration of a legacy agency provisioning workflow that set up new agency data across 6 services and 5 databases from C# services to Go and Temporal using AI-assisted Spec-Driven Development with Claude Code, then drove the rollout across production regions.</li>
+                <li>Improved identity and access management database scalability and reliability by migrating high-traffic APIs to read-replica-backed service paths, reducing primary database load by up to 30% and supporting safer regional switchovers.</li>
+                <li>Led API migration from legacy services to a new service architecture, driving load testing, integration testing, and production rollout for APIs adopted at approximately 1,000 RPS.</li>
+                <li>Modernized Flyway database migration CI/CD from 30-minute manual VM execution to 5-minute automated Kubernetes jobs deployed through Argo CD.</li>
+                <li>Proactively supported high-severity incident response for identity database CPU spikes, identifying traffic patterns, blast radius, and mitigation paths that protected search, evidence, and device workflows.</li>
+                <li>Built automation and operational tooling for capacity planning, identity environment setup, allowlist workflows, and deployment scripts, reducing manual engineering effort and improving repeatability.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span>2022/07 - 2023/06</span>
               <span>Vietnam</span>
             </div>
             <div class="timeline-content">
@@ -154,11 +174,11 @@
           </article>
           <article class="skill-card">
             <h3>Data & Messaging</h3>
-            <p>PostgreSQL, MySQL, Redis, Kafka, RabbitMQ, Hibernate</p>
+            <p>PostgreSQL, Azure SQL, MySQL, Redis, Kafka, RabbitMQ, Hibernate</p>
           </article>
           <article class="skill-card">
             <h3>Cloud & DevOps</h3>
-            <p>Docker, Kubernetes, CI/CD, Prometheus, Grafana, Git</p>
+            <p>Docker, Kubernetes, CI/CD, Temporal, Prometheus, Grafana, Splunk, Git</p>
           </article>
           <article class="skill-card">
             <h3>Quality & Security</h3>
@@ -175,27 +195,27 @@
 
         <div class="project-grid">
           <article class="project-card">
-            <span class="project-tag">Smart City Platform</span>
-            <h3>Aquacity Backend APIs</h3>
+            <span class="project-tag">Identity Migration</span>
+            <h3>Regional Database Migration</h3>
             <p>
-              Led backend API design for a smart city platform, aligning service boundaries, security practices, database access,
-              and integrations used by web and mobile teams.
+              Led a multi-year identity and access management database migration initiative across 12 regions, multiple product pillars,
+              100+ tables, and approximately 30 services, completing production switchover with zero incidents.
             </p>
           </article>
           <article class="project-card">
-            <span class="project-tag">Payments</span>
-            <h3>Risk & Fraud Services</h3>
+            <span class="project-tag">Modernization</span>
+            <h3>Agency Provisioning Modernization</h3>
             <p>
-              Delivered reactive Java services for risk workflows, KYC and AI integrations, rate limiting, and production stability
-              improvements in a high-volume fintech environment.
+              Led the migration of a legacy C# provisioning workflow that set up new agency data across 6 services and 5 databases to Go and Temporal using AI-assisted Spec-Driven Development with Claude Code, improving rollout control, observability,
+              and reliability across production regions.
             </p>
           </article>
           <article class="project-card">
-            <span class="project-tag">Billing</span>
-            <h3>Billing Service Migration</h3>
+            <span class="project-tag">Database Reliability</span>
+            <h3>Identity Database Load Reduction</h3>
             <p>
-              Migrated billing capabilities from a monolith into independent services with zero-downtime rollout, 50% lower API
-              latency, and stronger monitoring for real-time balance operations.
+              Migrated high-volume identity and access management API paths toward read-replica-backed service access patterns, reducing primary database
+              load by up to 30% and improving operational headroom.
             </p>
           </article>
         </div>
